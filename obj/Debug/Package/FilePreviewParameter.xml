@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="cms" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Ferry\ To\\Documents\\GitHub\\SmartCms\\obj\\Debug\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Ferry\ To\\Documents\\GitHub\\SmartCms\\obj\\Debug\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="umbracoDbDSN-Web.config Connection String" description="" value="server=127.0.0.1\SQLEXPRESS;database=cms;user id=sa;password=1q2wW@Q!" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Ferry\ To\\Documents\\GitHub\\SmartCms\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='umbracoDbDSN']/@connectionString" />
+  </parameter>
+</parameters>
