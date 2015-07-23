@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+
+@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using Umbraco.Web
+@using Umbraco.Web.Models
+@using Umbraco.Web.Controllers
+
+@{
+    var loginModel = new LoginModel();
+	@* added by ferry*@
+    var loginUrlPart = Umbraco.Content(Model.Content.Id).Url;
+	var currentUrl = Request.RawUrl;
+
+/**
+ * This conditional redirect is necessary due to Umbraco's use of Public Access.
+ * Rather than setting a query string redirect url, Umbraco alters the raw URL to be the referrer.
+ * So, if the raw url is anything but the sign in page's url, then we redirect to the raw url.
+ * Otherwise, use the macro parameter, redirectUrl.
+ */
+// 
+// Rather than
+	loginModel.RedirectUrl = currentUrl.Contains(loginUrlPart) ? 
+    Umbraco.Content(Model.MacroParameters["redirectUrl"]).Url : 
+    currentUrl;
+	
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("/umbraco_client/ui/jquery.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.min.js");
+    Html.RequiresJs("/umbraco_client/Application/JQuery/jquery.validate.unobtrusive.min.js");
+}
+
+@* NOTE: This RenderJsHere code should be put on your main template page where the rest of your script tags are placed *@
+@Html.RenderJsHere()
+
+@using (Html.BeginUmbracoForm<UmbLoginController>("HandleLogin"))
+{
+	@*added by ferry*@
+	@Html.HiddenFor(m => loginModel.RedirectUrl)
+		
+    <fieldset>
+        <legend>Login</legend>
+        
+        @Html.ValidationSummary("loginModel", true)
+
+        @Html.LabelFor(m => loginModel.Username)
+        @Html.TextBoxFor(m => loginModel.Username)
+        @Html.ValidationMessageFor(m => loginModel.Username)
+        <br />
+
+        @Html.LabelFor(m => loginModel.Password)
+        @Html.PasswordFor(m => loginModel.Password)
+        @Html.ValidationMessageFor(m => loginModel.Password)
+        <br />
+
+        <button>Login</button>
+    </fieldset>  
+}

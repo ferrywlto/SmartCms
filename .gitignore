@@ -41,3 +41,24 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.gen
+*.gen
+*.lock
+App_Data/TEMP/ExamineIndexes/External/Index/_0_1.del
+*.del
+App_Data/TEMP/ExamineIndexes/Internal/Index/segments.gen
+*.cfs
+App_Data/TEMP/ExamineIndexes/Internal/Index/_a.fdt
+*.fdx
+App_Data/TEMP/ExamineIndexes/Internal/Index/_a.frq
+*.nrm
+App_Data/TEMP/ExamineIndexes/Internal/Index/_a.prx
+*.tii
+App_Data/TEMP/ExamineIndexes/Internal/Index/_a.tis
+*.tvd
+App_Data/TEMP/ExamineIndexes/Internal/Index/_a.fnm
+*.tvf
+App_Data/TEMP/PluginCache/umbraco-plugins.VHSC033JD1.hash
+*.gen
+App_Data/TEMP/ExamineIndexes/External/Index/segments.gen
+App_Data/TEMP/ExamineIndexes/Internal/Index/segments.gen
