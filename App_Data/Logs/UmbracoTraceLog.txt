@@ -216,3 +216,37 @@ Exception rethrown at [0]:
 2015-07-23 18:15:14,530 [5] WARN  Umbraco.Core.Models.Member - [T65/D3] Trying to access the 'PasswordQuestion' property on Umbraco.Core.Models.Member but the umbracoMemberPasswordRetrievalQuestion property does not exist on the member type so a default value is returned. Ensure that you have a property type with alias: umbracoMemberPasswordRetrievalQuestion configured on your member type in order to use the 'PasswordQuestion' property on the model correctly.
 2015-07-23 18:15:14,551 [5] WARN  Umbraco.Core.Models.Member - [T52/D3] Trying to access the 'PasswordQuestion' property on Umbraco.Core.Models.Member but the umbracoMemberPasswordRetrievalQuestion property does not exist on the member type so a default value is returned. Ensure that you have a property type with alias: umbracoMemberPasswordRetrievalQuestion configured on your member type in order to use the 'PasswordQuestion' property on the model correctly.
 2015-07-23 18:15:14,551 [5] WARN  Umbraco.Core.Models.Member - [T52/D3] Trying to access the 'PasswordQuestion' property on Umbraco.Core.Models.Member but the umbracoMemberPasswordRetrievalQuestion property does not exist on the member type so a default value is returned. Ensure that you have a property type with alias: umbracoMemberPasswordRetrievalQuestion configured on your member type in order to use the 'PasswordQuestion' property on the model correctly.
+2015-07-23 18:23:07,105 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [ScheduledPublishing] Terminating
+2015-07-23 18:23:07,105 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [ScheduledPublishing] Waiting for tasks to complete
+2015-07-23 18:23:07,110 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [ScheduledPublishing] Tasks completed, terminated
+2015-07-23 18:23:07,110 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [LogScrubber] Terminating
+2015-07-23 18:23:07,110 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [LogScrubber] Waiting for tasks to complete
+2015-07-23 18:23:07,110 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [LogScrubber] Tasks completed, terminated
+2015-07-23 18:23:07,141 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [ScheduledTasks] Terminating
+2015-07-23 18:23:07,141 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [ScheduledTasks] Waiting for tasks to complete
+2015-07-23 18:23:07,141 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [ScheduledTasks] Tasks completed, terminated
+2015-07-23 18:23:07,141 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [XmlCacheFilePersister] Terminating
+2015-07-23 18:23:07,141 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T93/D3] [XmlCacheFilePersister] Waiting for tasks to complete
+2015-07-23 18:23:07,142 [5] INFO  Umbraco.Web.Scheduling.BackgroundTaskRunner - [T90/D3] [XmlCacheFilePersister] Tasks completed, terminated
+2015-07-23 18:23:07,243 [5] INFO  Umbraco.Core.UmbracoApplicationBase - [T41/D3] Application shutdown. Reason: CodeDirChangeOrDirectoryRename
+2015-07-23 18:23:11,889 [7] INFO  Umbraco.Core.CoreBootManager - [T21/D4] Umbraco application starting
+2015-07-23 18:23:11,937 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Determining hash of code files on disk
+2015-07-23 18:23:11,945 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Hash determined (took 5ms)
+2015-07-23 18:23:11,953 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of umbraco.interfaces.IApplicationStartupHandler
+2015-07-23 18:23:12,087 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of umbraco.interfaces.IApplicationStartupHandler, found 37 (took 132ms)
+2015-07-23 18:23:12,166 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter
+2015-07-23 18:23:12,170 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyEditorValueConverter, found 0 (took 3ms)
+2015-07-23 18:23:12,170 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of Umbraco.Core.PropertyEditors.IPropertyValueConverter
+2015-07-23 18:23:12,172 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of Umbraco.Core.PropertyEditors.IPropertyValueConverter, found 16 (took 2ms)
+2015-07-23 18:23:12,189 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of Umbraco.Web.Mvc.SurfaceController
+2015-07-23 18:23:12,190 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of Umbraco.Web.Mvc.SurfaceController, found 4 (took 1ms)
+2015-07-23 18:23:12,191 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of Umbraco.Web.WebApi.UmbracoApiController
+2015-07-23 18:23:12,193 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of Umbraco.Web.WebApi.UmbracoApiController, found 36 (took 1ms)
+2015-07-23 18:23:12,226 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of Umbraco.Core.Media.IThumbnailProvider
+2015-07-23 18:23:12,229 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of Umbraco.Core.Media.IThumbnailProvider, found 3 (took 2ms)
+2015-07-23 18:23:12,229 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Starting resolution types of Umbraco.Core.Media.IImageUrlProvider
+2015-07-23 18:23:12,231 [7] INFO  Umbraco.Core.PluginManager - [T21/D4] Completed resolution of types of Umbraco.Core.Media.IImageUrlProvider, found 1 (took 1ms)
+2015-07-23 18:23:13,036 [7] INFO  Umbraco.Web.Search.ExamineEvents - [T21/D4] Initializing Examine and binding to business logic events
+2015-07-23 18:23:13,146 [7] INFO  Umbraco.Web.Search.ExamineEvents - [T21/D4] Adding examine event handlers for index providers: 3
+2015-07-23 18:23:13,155 [7] INFO  Umbraco.Core.CoreBootManager - [T21/D4] Umbraco application startup complete (took 1241ms)
+2015-07-23 18:23:13,270 [7] INFO  Umbraco.Web.UmbracoModule - [T94/D4] Setting OriginalRequestUrl: localhost:8888/umbraco

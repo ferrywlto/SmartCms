@@ -62,3 +62,5 @@ App_Data/TEMP/PluginCache/umbraco-plugins.VHSC033JD1.hash
 *.gen
 App_Data/TEMP/ExamineIndexes/External/Index/segments.gen
 App_Data/TEMP/ExamineIndexes/Internal/Index/segments.gen
+App_Data/TEMP/ExamineIndexes/Internal/Index/segments_c
+*.gen
