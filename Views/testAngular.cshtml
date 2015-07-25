@@ -1,0 +1,68 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "LoginLayout.cshtml";
+    var messageController = new My.Controllers.MessageApiController();
+    var messages = messageController.GetAll();
+
+    var pageSize =3;
+    var page =1;int.TryParse(Request.QueryString["page"],out page);
+    var totalPages =(int)Math.Ceiling((double)messages.Count()/(double)pageSize);
+
+    if(page > totalPages)
+    {
+        page = totalPages;
+    }
+    else if(page <1)
+    {
+        page =1;
+    } 
+}
+<link href="~/CSS/Layout/_tableContent.css" rel="stylesheet" type="text/css" />
+<link href="~/CSS/Layout/_controlImage.css" rel="stylesheet" type="text/css" />
+@helper RenderDate(DateTime? theDate)
+{
+    var timezoneOffset = ((double?)ViewBag.TimezoneOffset).HasValue ? ((double?)ViewBag.TimezoneOffset).Value : 0.0;
+    if (theDate.HasValue)
+    {
+        var today = DateTime.Today;
+        if (theDate.Value.AddHours(timezoneOffset).Date.Equals(today))
+        {
+            @Html.Raw(theDate.Value.AddHours(timezoneOffset).ToString("hh:mm tt"))
+        }
+        else
+        {
+            @Html.Raw(theDate.Value.AddHours(timezoneOffset).ToString("yyyy-MM-dd"))
+        }
+    }
+    else
+    {
+        @Html.Raw(string.Empty)
+    }
+}
+@{
+    foreach (var m in messages)
+    {
+        <div class="message-table-row read-message">
+            <div class="table-row-field message-color-bar">
+                <span class="table-row-color-bar" style="background-color: #ffd800"></span>
+            </div>
+            <div class="table-row-field message-check-box">
+                <span class="checkbox icon-check-box"></span>
+            </div>
+            <div class="table-row-field text message-from overflow-text">@m.From</div>
+            <div class="table-row-field text message-message overflow-text">
+                <span class="message-subject">@m.Content</span><span class="message-body"></span>
+            </div>
+            <div class="table-row-field text message-date overflow-text">@RenderDate(@m.Date)</div>
+            <div class="table-row-field message-app">
+                <div class="app-icon app-icon-safety"></div>
+            </div>
+            <div class="table-row-field message-table-button-label">
+                <div class="table-row-button-group" align="center" style="display: none;">
+                    <div class="message-view-detail-button button table-row-button icon-button icon-quick-view-button icon-quick-view-more-button" title="View"></div>
+                    <div class="message-delete-button button table-row-button icon-button icon-quick-delete-button" title="Delete"></div>
+                </div>
+            </div>
+        </div>
+    }
+}

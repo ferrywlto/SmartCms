@@ -207,6 +207,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\glass\editor.controller.js" />
+    <Content Include="App_Plugins\glass\editor.html" />
+    <Content Include="App_Plugins\Message\message.controller.js" />
+    <Content Include="css\Layout\_pageContent.css" />
+    <Content Include="css\Layout\_VHSmartLayoutPage.css" />
     <Content Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -234,8 +239,13 @@
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="App_Plugins\Message\package.manifest" />
+    <Content Include="App_Plugins\glass\package.manifest" />
     <None Include="Properties\PublishProfiles\local_file.pubxml" />
     <None Include="Properties\PublishProfiles\local_web.pubxml" />
+    <Content Include="Views\testAngular.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,7 +262,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="css\images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,69 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'/>
+	<link href="~/CSS/Layout/_pageContent.css" rel="stylesheet" type="text/css"/>
+	<link href="~/CSS/Layout/_VHSmartLayoutPage.css" rel="stylesheet" type="text/css"/>
+	<script src="~/scripts/Layout/_VHSmartLayoutPage.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="_layout">
+    <div id="_header">
+        <div id="_left-banner"></div>
+        <div id="_banner">
+            <div id="_hotline">
+                <div id="_hotline-icon"></div>
+                <div id="_hotline-title">Customer Service Hotline: (+852)</div>
+                <div id="_hotline-number">2836<span> </span>0099
+                </div>
+            </div>
+            <div id="_new-user-registration">
+                <div class="new-user-registration">
+                    <a href='@Url.Action("NewUserRegistration", "Home")'>New User Registration</a>
+                </div>
+            </div>
+            <div id="_menu">
+                <div id="_menu-item-login" class="menu-item">
+                    <a href="@Url.Action("Index", "Login")">Login</a>
+                </div>
+                <div id="_menu-item-solution" class="menu-item">
+                    <a href="">Solution</a>
+                </div>
+                <div id="_menu-item-service" class="menu-item">
+                    <a href="">Service</a>
+                </div>
+                <div id="_menu-item-download" class="menu-item">
+                    <a href="">Download</a>
+                </div>
+                <div id="_menu-item-support" class="menu-item">
+                    <a href="">Support</a>
+                </div>
+            </div>
+        </div>
+        <div id="_right-banner"></div>
+    </div>
+    <div id="_banner-bar">
+        <span></span>
+    </div>
+    <div id="_body">
+        @RenderBody()
+    </div>
+    <div id="_footer">
+        <div id="_footer-content">
+            <div id="_footer-copyright">Copyright ©2001-@DateTime.Now.Year.ToString() <a href="http://www.vhsoft.com/">VHSoft Technologies Co., Ltd.</a> All Right Reserved.
+            </div>
+            <div id="_footer-content-policy">
+                <a href="">Unauthorised Content Policy</a>
+            </div>
+            <div id="_footer-policy">
+                <a href="">General Private Policy</a>
+            </div>
+            <div id="_footer-use-of-site">
+                <a href="">Use of Site</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

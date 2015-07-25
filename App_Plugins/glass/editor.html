@@ -1,0 +1,11 @@
+﻿<div ng-controller="Glass.EditorController">
+    <ul class="thumbnails">
+        <li ng-class="{selected: glass.image === model.value}" ng-repeat="glass in glasses">
+            <a href class="thumbnail" ng-click="choose(glass)">
+                <img ng-src="{{glass.image}}" />
+                <small>{{glass.name}}</small>
+            </a>
+        </li>
+    </ul>
+</div>
+

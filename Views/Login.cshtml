@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "LoginLayout.cshtml";
+}
+<head>
+	<link href="~/CSS/Layout/Login/index.css" rel="stylesheet" type="text/css"/>
+</head>
+<div>
+    <div id="login-left-content">
+        <div id="login-left-content-title">
+            VH<b>Smart</b><sup>TM</sup> Center
+        </div>
+        <div id="login-left-content-desc">
+            Your integrated <br/> construction management <br/> solution in the cloud
+        </div>
+        <div id="login-left-content-image">
+            <a href=""></a>
+        </div>
+    </div>
+    <div id="login-right-content">
+        <div id="login-right-content-title">
+            Login to supervise, manage, delegate and view photos, data and statistics.
+        </div>
+		@Umbraco.RenderMacro("LoginMarco")
+    </div>
+</div>

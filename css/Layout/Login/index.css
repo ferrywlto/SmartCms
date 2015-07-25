@@ -1,0 +1,160 @@
+#loading-indicator
+{
+    display:none;
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#loading-indicator-image
+{
+    background-image: url("../../images/ajax-loader.gif");
+    background-repeat: no-repeat;
+    display:inline-block;
+    height:16px;
+    margin-right: 5px;
+    width:16px;
+}
+
+#login-left-content
+{
+    float: left;
+    font-size: 46px;
+    margin-top: 100px;
+    width:500px;
+}
+
+#login-left-content-desc
+{
+    color: #7FC400;
+    margin-top: 20px;
+}
+
+#login-left-content-title sup
+{
+    font-size: 20px;
+}
+
+#login-left-content-image
+{
+    height:74px;
+    margin-top: 20px;
+    width:225px;
+}
+
+#login-left-content-image a
+{
+    background-image: url("../../images/android-app-on-google-play.png");
+    background-position:bottom;
+    display:block;
+    height: inherit;
+    width: inherit;
+}
+
+#login-left-content-image a:hover
+{
+     background-position:top;
+}
+
+#login-right-content
+{
+    float:right;
+    margin-top: 100px;
+    width:400px;
+}
+
+#login-right-content-login-panel
+{
+    background-image: url("../../images/bg_login.png");
+    height:320px;
+    margin: 20px auto 0 auto;
+    width:345px;
+}
+
+#login-right-content-login-panel input[type=text], #login-right-content-login-panel input[type=password]
+{
+    border:1px solid #2E5AC6;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5px;
+    vertical-align:bottom;
+    width: 278px;
+}
+
+#login-right-content-login-panel input[type=text]:focus, #login-right-content-login-panel input[type=password]:focus
+{
+    /*border: 1px solid #2E5AC6;*/
+}
+
+#login-right-content-login-panel input[type=text].alert:focus, #login-right-content-login-panel input[type=password].alert:focus
+{
+    border: 1px solid #f66;
+}
+
+#login-right-content-title
+{
+    color: #7F7F7F;
+    font-size: 18px;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    white-space:normal;
+    width:300px;
+}
+
+#password
+{
+    margin-top: 18px;
+    margin-left: 30px;
+}
+
+#submit-button
+{
+    font-size: 20px;
+    height:42px;
+    line-height:42px;
+    margin-left: 30px;
+    margin-top: 14px;
+    text-align: center;
+    vertical-align:middle;
+    width:290px;
+}
+
+#submit-button a 
+{
+    background-image: url("../../images/bg_button_blue.png");
+    color: #FFFFFF;
+    display:block;
+    height: inherit;
+    text-decoration: none;
+    width:inherit;
+}
+
+#submit-button a:hover:active
+{
+    background-position: 0 -42px;
+}
+
+#submit-button a:hover
+{
+    background-position: 0 -84px;
+}
+
+#username
+{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+#warning-message
+{
+    color: red;
+    font-size: 16px;
+    height:16px;
+    line-height:16px;
+    margin-top: 20px;
+    text-align:center;
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

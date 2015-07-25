@@ -1,0 +1,235 @@
+html
+{
+    height:100%;
+    width: 100%;
+}
+
+body
+{
+    background-color: #F2F2F2;
+    font-family:'Roboto Condensed', 微軟正黑體;
+    font-weight: 300;
+    height: 100%;
+    margin: 0;
+    min-height:826px;
+    padding:0;
+    position: relative;
+    width: 100%;
+}
+
+#_banner
+{
+    background-image: url("../images/bg_topbar.png");
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    display: table-cell;
+    height: 85px;
+    line-height: 85px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 950px;
+}
+
+#_banner-bar
+{
+    background-color: #e5e5e5;
+    height: 8px;
+    line-height: 8px;
+    min-width: 960px;
+}
+
+#_banner span.value
+{
+    display:none;
+}
+
+#_banner-title
+{
+    display:table-cell; 
+    float:left;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    vertical-align:middle;
+    width: 280px;
+}
+
+#_body
+{
+    height: 100%;
+    margin: 0 auto 0 auto;
+    min-height: 645px;
+    padding: 0 5px 0 5px;
+    width: 950px;
+}
+
+#_footer
+{
+    border-top: 1px solid #7F7F7F;
+    bottom:0;
+    height: 50px;    
+    line-height: 50px;
+    min-width: 960px;
+    position:absolute;
+    width:100%;
+}
+
+#_footer-content
+{
+    font-size: 12px;
+    height: 50px;    
+    line-height: 50px;
+    margin: 0 auto 0 auto;
+    padding: 0 5px 0 5px;
+    width: 950px;
+}
+
+#_footer-copyright
+{
+    float:left;
+}
+
+#_footer-use-of-site, #_footer-policy, #_footer-content-policy
+{
+    float: right;
+    margin-left: 30px;
+}
+
+#_footer a
+{
+    color: #50BB9A;
+}
+
+#_footer span
+{
+    color: #262626;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: inherit;
+    padding-left: 10px;
+}
+
+#_header
+{
+    display:table;
+    min-width: 960px;
+    height: 85px;
+    width: 100%;
+}
+
+#_hotline
+{
+    float: left;
+    height:68px;
+    padding-top: 17px;
+    width: 200px;
+}
+
+#_hotline-icon
+{
+    background-image: url('../images/icon_phone.png');
+    background-repeat: no-repeat;
+    float: left;
+    height:53px;
+    margin-top: 15px;
+    width: 20px;
+}
+
+#_hotline-number
+{
+    font-size: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+#_hotline-title
+{
+    font-size: 13px;
+    height: 9px;
+    line-height: 13px;
+    padding-top:9px;
+}
+
+#_left-banner
+{
+    background-image: url("../images/bg_topbar_left.png");
+    background-repeat:repeat-x;
+    display: table-cell;
+    width: auto;
+}
+
+#_layout
+{
+    min-height:100%;
+}
+
+#_menu
+{
+    float:right;
+    height:inherit;
+}
+
+#_banner a 
+{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#_new-user-registration
+{
+    float:right;
+    height:inherit;
+}
+
+#_new-user-registration .new-user-registration
+{
+    background-image: url("../images/bg_button_green.png");
+    font-size:20px;
+    height:35px;
+    line-height:35px;
+    margin-top: 45px;
+    text-align:center;
+    vertical-align:middle;
+    width:185px;
+}
+
+#_right-banner
+{
+    background-image: url("../images/bg_topbar_right.png");
+    background-repeat:repeat-x;
+    display: table-cell;
+    width: auto;
+}
+
+.menu-item
+{
+    float: left;
+    font-size: 20px;
+    height: 60px;
+    padding-top: 20px;
+    text-align: center;
+    width: 100px;
+}
+
+.menu-item-hover
+{
+    border-bottom: 5px solid #5477de;
+}
+
+.menu-item-selected
+{
+    border-bottom: 5px solid #54cbb9;
+}
+
+.new-user-registration-hover
+{
+    background-position: 0 -70px;
+}
+
+.new-user-registration-mousedown
+{
+    background-position: 0 -35px;
+}
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
