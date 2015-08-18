@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var messageController = new My.Controllers.MessageApiController();
+    var messages = messageController.GetAll();
+    var grid = Html.EJ().Grid<My.Controllers.Message>("FlatGrid")
+        .Datasource(messages).EditSettings(ep=>ep.AllowEditing(true).EditMode(EditMode.Dialog).AllowAdding().AllowDeleting())
+        .AllowSorting()
+        .AllowPaging()
+        .Columns(col =>
+        {
+            col.Field("From").HeaderText("From").TextAlign(TextAlign.Left).Width(75).Add();
+            col.Field("Date").HeaderText("Date").Width(80).Format("{0:MM/dd/yyyy}").Add();
+            col.Field("Content").HeaderText("Subject").Width(200).Add();
+        });
+}
+<div class="content-container-fluid">
+    @grid
+</div>

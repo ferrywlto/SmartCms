@@ -1,0 +1,85 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+<script type="text/javascript">
+    var folderPath = "@Url.Content("~/media/")";
+    var localServ = "@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault")";
+    var temp = "";
+    function onDropdownValueChanged(sender) {
+        folderPath = "@Url.Content("~/media/")" + sender.value;
+        $("#fileExplorerMVC").ejFileExplorer(getFileSetting());
+    }
+    function getFileSetting() {
+        return {
+            fileTypes: "*.png, *.gif, *.jpg, *.jpeg, *.docx, *.pdf",
+            layout: "grid",
+            path: folderPath,
+            ajaxAction: localServ
+        };
+    }
+    function onFileSelect(args) {
+        if (args.model.selectedItems.length > 0) { temp = args.model.path + args.model.selectedItems[0]; }
+        //alert(args.model.path + args.model.selectedItems[0] + " has been selected");
+    }
+    function dialogOpen() {
+        $('#helpDialog').ejDialog('open')
+    }
+    function tempx()
+    {
+        document.write(folderPath);
+    }
+</script>
+
+@{
+    var feCtrl = new My.Controllers.FileExplorerController();
+    var ddl = Html.EJ().DropDownList("vegatableMVC").Width("250");
+    ddl.DropDownListFields(f => f.Text("skill").Value("value").Category("category"));
+    ddl.AllowGrouping(true).Datasource(feCtrl.GetPathList());
+    ddl.ClientSideEvents(e => e.Change("onDropdownValueChanged"));
+
+    List<string> toolsList = new List<string>() { "navigation", "addressBar", "editing", "copyPaste", "customTool" };
+    List<string> editList = new List<string>() { "Refresh", "Delete", "Rename", "Help", "Help2" };
+    var fe = Html.EJ().FileExplorer("fileExplorerMVC")
+        .ClientSideEvents(c=>c.Select("onFileSelect"))
+        .Layout(LayoutType.Grid)
+        .FileTypes("*.png, *.gif, *.jpg, *.jpeg, *.docx, *.pdf")
+        .Tools(t=>t.CustomTool(cust=>cust.Name("Help")
+                .Action("dialogOpen")
+                .Css("e-fileExplorer-toolbar-icon Help").Add()
+                ))                   
+    .ToolsList(toolsList)
+    .AjaxAction(@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault"))
+    .Width("1000").Height("500").Path(@Url.Content("~/media/"));
+
+    var hd = Html.EJ().Dialog("helpDialog").Title("FileExplorer Help").EnableResize(false).EnableModal(true).ShowOnInit(false).Width(250)
+    .ContentTemplate(@<div><script type="text/javascript">tempx()</script></div>); // <- need to find out why it didnt update
+}
+<div class="content-container-fluid">
+    @ddl
+    @fe
+    @hd
+</div>
+
+<style class="cssStyles">
+    .e-fileExplorer-toolbar-icon {
+        height: 22px;
+        width: 22px;
+        font-family: 'ej-webfont';
+        font-size: 18px;
+        margin-top: 2px;
+        text-align: center;
+    }
+
+    .e-fileExplorer-toolbar-icon.Help:before {
+        content: "\u2139";
+    }
+
+    .e-dialog .header-content {
+        font-size: 22px;
+    }
+
+    #helpDialog_wrapper.e-dialog > .e-titlebar {
+        background: transparent;
+        border: 0 none;
+        color: #aaa;
+    }
+</style>
+

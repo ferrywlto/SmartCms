@@ -1,0 +1,16 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = null;
+}
+@using (Html.BeginUmbracoForm<SmartCms.App_Code.UploadImageController>("HandleUpload"))
+{
+    
+<input type="file" name="file" id="file" />
+<input type="submit" value="Submit" />
+
+}
+@*@using (Html.BeginForm("Upload", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="FileUpload" />
+    <input type="submit" name="Submit" id="Submit" value="Upload" />
+}*@

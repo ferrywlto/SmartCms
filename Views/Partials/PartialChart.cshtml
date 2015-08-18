@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    var chartDataContoller = new My.Controllers.ChartDataApiController();
+    var chartSeries = chartDataContoller.GetAll();
+    var chart = Html.EJ().Chart("chartcontainerMVC")
+    .Title(t => t.Text("Annual Message Analytic"))
+    .Size(s=>s.Width("1000").Height("550"))
+    
+    .Legend(l=>l.Size(s=>s.Height("200").Width("750")).Shape(ChartShape.Circle).ColumnCount(4)
+        .Alignment(Syncfusion.JavaScript.DataVisualization.TextAlignment.Center))
+    .CommonSeriesOptions(o => o.Type(SeriesType.StackingColumn100)
+        .EnableAnimation(true).Opacity(0.5)
+        //.Marker(mr => mr.Shape(ChartShape.Circle).Visible(true))
+        .Tooltip(t => t.Duration("300ms").EnableAnimation(true).Fill("white").Visible(true)));
+    foreach (var cs in chartSeries)
+    {
+        var q = from row in cs.cd
+                select new { d = row.d.ToShortDateString(), c = row.c };
+        chart.Series(series => series.DataSource(q.ToList()).Name(cs.s).XName("d").YName("c").Add());
+    }
+}
+<div class="content-container-fluid">
+    @chart
+</div>

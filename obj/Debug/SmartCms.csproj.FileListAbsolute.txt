@@ -160,3 +160,4 @@ E:\Source\SmartCms IIS Deployable\SmartCms\bin\Umbraco.Web.UI.xml
 E:\Source\SmartCms IIS Deployable\SmartCms\bin\UmbracoExamine.xml
 E:\Source\SmartCms IIS Deployable\SmartCms\obj\Debug\SmartCms.dll
 E:\Source\SmartCms IIS Deployable\SmartCms\obj\Debug\SmartCms.pdb
+E:\Source\SmartCms IIS Deployable\SmartCms\obj\Debug\SmartCms.csprojResolveAssemblyReference.cache

@@ -1,4 +1,6 @@
-AppData\cache
+App_Data\cache\
+App_Data\cache
+App_Data
 obj\Debug
 
 # Windows image file caches

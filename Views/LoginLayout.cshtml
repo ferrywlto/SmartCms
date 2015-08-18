@@ -6,6 +6,8 @@
 	<link href="~/CSS/Layout/_pageContent.css" rel="stylesheet" type="text/css"/>
 	<link href="~/CSS/Layout/_VHSmartLayoutPage.css" rel="stylesheet" type="text/css"/>
 	<script src="~/scripts/Layout/_VHSmartLayoutPage.js" type="text/javascript"></script>
+    <!-- Layout page that will use Syncfusion component in partial page must include this line-->
+    @{Html.RenderPartial("SyncfusionLayout");}
 </head>
 <body>
 <div id="_layout">
@@ -47,7 +49,7 @@
         <span></span>
     </div>
     <div id="_body">
-        @RenderBody()
+         @RenderBody()
     </div>
     <div id="_footer">
         <div id="_footer-content">
@@ -65,5 +67,10 @@
         </div>
     </div>
 </div>
+    <script type="text/javascript">
+    $(function () {
+        $('#_body').css("min-height", $(document).height());
+    });
+    </script>
 </body>
 </html>

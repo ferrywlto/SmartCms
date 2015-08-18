@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "LoginLayout.cshtml";
+}
+<div id="fileExplorer"></div>
+
+<script>
+    $(function (){
+        var localServ = "@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault")";
+        $("#fileExplorer").ejFileExplorer({
+            fileTypes: "*.png, *.gif, *.jpg, *.jpeg, *.docx, *.pdf",
+            layout: "grid",
+            @*path: "@Url.Content("~/FileExplorerContent/")",*@
+            path: "@Url.Content("~/media/")",
+            ajaxAction: localServ
+            @*ajaxSettings: {
+                upload: { url: "@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault/Upload{0}")" },
+                download: { url: "@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault/Download{0}")" }
+            }*@
+    });
+    });
+</script>
+
+<div class="layout">
+
+    @Html.EJ().FileExplorer("fileExplorerMVC").FileTypes("*.png, *.gif, *.jpg, *.jpeg, *.docx").Path("~/FileExplorerContent/").AjaxAction(@Url.Content("/FileExplorer/FileActionDefault")).Width("900px").Height("400px")
+</div>

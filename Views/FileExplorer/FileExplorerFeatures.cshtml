@@ -1,0 +1,9 @@
+﻿
+<div class="layout">
+@Html.EJ().FileExplorer("fileExplorer").FileTypes("*.png, *.gif, *.jpg, *.jpeg, *.docx").Path("~/FileExplorerContent/").AjaxAction(@Url.Content("/FileExplorer/FileActionDefault")).Width("900px").Height("400px")
+</div>
+<style>
+    .layout{
+        margin-top:10px;
+    }
+</style>

@@ -20,7 +20,7 @@
                 var editor = new Umbraco.Editors.EditScript({
                     nameTxtBox: $('#<%= NameTxt.ClientID %>'),
                     originalFileName: '<%= NameTxt.Text %>',
-                    saveButton: $("#<%= ((Control)SaveButton).ClientID %>"),
+                    saveButton: $("#<%= ((System.Web.UI.Control)SaveButton).ClientID %>"),
                     editorSourceElement: $('#<%= editorSource.ClientID %>'),
                     text: {
                         fileErrorHeader: '<%= HttpUtility.JavaScriptStringEncode(umbraco.ui.Text("speechBubbles", "fileErrorHeader")) %>',

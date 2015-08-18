@@ -1,0 +1,15 @@
+﻿<!-- For Syncfusion components -->
+<!-- Because of javascript nature, the import order must follow or UI cannot render properly -->
+<script src="~/scripts/Syncfusion/jquery-1.10.2.min.js"></script>
+<script src="~/scripts/Syncfusion/jquery.globalize.min.js"></script>
+<script src="~/scripts/Syncfusion/jquery.easing.1.3.min.js"></script>
+<script src="~/scripts/Syncfusion/jsrender.min.js"></script>
+<script src="~/scripts/Syncfusion/ej.web.all.min.js"> </script>
+<link href="~/CSS/Syncfusion/ej/web/default-theme/ej.widgets.all.min.css" rel="stylesheet" type="text/css" />
+<link href="~/CSS/Syncfusion/ej/web/default-theme/ej.web.all.min.css" rel="stylesheet" type="text/css" />
+<!--This line is very important for Syncfusion MVC if
+    <add key="UnobtrusiveJavaScriptEnabled" value="false" />
+    in web.config is set to false, if set to true then no need
+    Html.EJ().ScriptManager(); but ej.unobtrusive.min.js will be required
+-->
+@Html.EJ().ScriptManager();

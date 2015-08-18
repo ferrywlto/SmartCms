@@ -6,6 +6,7 @@
 
 <%@ Import Namespace="Umbraco.Core" %>
 <%@ Import Namespace="Umbraco.Core.IO" %>
+
 <%@ Register TagPrefix="cc1" Namespace="umbraco.uicontrols" Assembly="controls" %>
 <%@ Register TagPrefix="umb" Namespace="ClientDependency.Core.Controls" Assembly="ClientDependency.Core" %>
 
@@ -34,7 +35,7 @@
                     masterPageDropDown: $("#<%= MasterTemplate.ClientID %>"),
                     nameTxtBox: $("#<%= NameTxt.ClientID %>"),
                     aliasTxtBox: $("#<%= AliasTxt.ClientID %>"),
-                    saveButton: $("#<%= ((Control)SaveButton).ClientID %>"),
+                    saveButton: $("#<%= ((System.Web.UI.Control)SaveButton).ClientID %>"),
                     templateId: '<%= Request.QueryString["templateID"] %>',
                     codeEditorElementId: '<%= editorSource.ClientID %>',
                     modalUrl: "<%= IOHelper.ResolveUrl(SystemDirectories.Umbraco) %>/dialogs/editMacro.aspx"

@@ -24,7 +24,7 @@
             var editor = new Umbraco.Editors.EditTemplate({
                 templateAliasClientId: '<%= AliasTxt.ClientID %>',
                 templateNameClientId: '<%= NameTxt.ClientID %>',
-                saveButton: $("#<%= ((Control)SaveButton).ClientID %>"),
+                saveButton: $("#<%= ((System.Web.UI.Control)SaveButton).ClientID %>"),
                 restServiceLocation: "<%= Url.GetSaveFileServicePath() %>",                    
                 umbracoPath: '<%= IOHelper.ResolveUrl(SystemDirectories.Umbraco) %>',
                 editorClientId: '<%= editorSource.ClientID %>',

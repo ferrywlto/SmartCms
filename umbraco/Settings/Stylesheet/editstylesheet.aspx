@@ -15,7 +15,7 @@
                     nameTxtBox: $('#<%= NameTxt.ClientID %>'),
                     originalFileName: '<%= NameTxt.Text %>',
                     cssId: '<%= Request.QueryString["id"] %>',
-                    saveButton: $("#<%= ((Control)SaveButton).ClientID %>"),
+                    saveButton: $("#<%= ((System.Web.UI.Control)SaveButton).ClientID %>"),
                     editorSourceElement: $('#<%= editorSource.ClientID %>'), 
                     text: {
                         cssErrorHeader: '<%= HttpUtility.JavaScriptStringEncode(umbraco.ui.Text("speechBubbles", "cssErrorHeader")) %>',
