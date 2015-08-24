@@ -46,7 +46,7 @@ namespace SmartCms.App_Code
                     
                 //}
                 var ms = Services.MediaService;
-                var mediaFile = ms.CreateMedia("UploadTest", -1, "Image");
+                var mediaFile = ms.CreateMedia("UploadTest", -1, global::Umbraco.Core.Constants.Conventions.MediaTypes.Folder);
                 
 
                 foreach (var propertyType in mediaFile.PropertyTypes)

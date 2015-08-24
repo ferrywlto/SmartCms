@@ -1,0 +1,107 @@
+﻿
+<script id="templateData" type="text/x-jsrender">
+
+    <tr>
+
+        <td class="photo">
+
+            <img style="width:130px;height: 160px" src="http://js.syncfusion.com/demos/web/themes/images/Employees//{{:EmployeeID}}.png" alt="{{:EmployeeID}}" />
+
+        </td>
+
+        <td class="details">
+
+            <table class="CardTable" cellpadding="3" cellspacing="6">
+
+                <colgroup>
+
+                    <col width="50%">
+
+                    <col width="50%">
+
+                </colgroup>
+
+                <tbody>
+
+                    <tr>
+
+                        <td class="CardHeader">First Name: </td>
+
+                        <td style="padding:20px">{{:FirstName}} </td>
+
+                    </tr>
+
+                    <tr>
+
+
+
+                        <td class="CardHeader">
+
+                            Birth Date:
+
+                        </td>
+
+                        <td style="padding:20px">
+
+                            {{:BirthDate.toLocaleDateString()}}
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+
+
+                        <td class="CardHeader">
+
+                            Hire Date:
+
+                        </td>
+
+                        <td style="padding:20px">
+
+                            {{:HireDate.toLocaleDateString()}}
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </td>
+
+    </tr>
+
+</script>
+
+<style>
+    .CardHeader {
+        font-weight: bold;
+        font-size: 14px;
+        padding: 20px;
+    }
+</style>
+
+
+
+@(Html.EJ().Grid<EmployeeView>("RowTemplate")
+
+.Datasource((IEnumerable<object>)ViewBag.datasource)
+
+.ScrollSettings(scroll => scroll.Height(480).Width(500))
+
+.Columns(col =>
+{
+
+    col.HeaderText("photo").TextAlign(TextAlign.Center).Width(30).Add();
+
+    col.HeaderText("Employee Details").TextAlign(TextAlign.Left).Width(70).Add();
+
+})
+
+.RowTemplate("#templateData")    // row template
+
+)

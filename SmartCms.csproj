@@ -697,6 +697,17 @@
     <Content Include="Views\Partials\PartialMessageGrid.cshtml" />
     <Content Include="Views\Partials\PartialAccordion.cshtml" />
     <Content Include="Views\Partials\PartialCustom.cshtml" />
+    <Content Include="Views\Partials\PartialTree.cshtml" />
+    <Content Include="Views\Partials\PartialGrid.cshtml" />
+    <Content Include="Views\Partials\PartialTile.cshtml" />
+    <Content Include="Views\testCanvsJs.cshtml" />
+    <Content Include="Views\TestPartial.cshtml" />
+    <Content Include="Views\FileExplorer.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <None Include="Views\testPartialx.cshtml" />
+    <Content Include="Views\Partials\TestPartial.cshtml" />
+    <Content Include="Views\TreeAndTile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -717,6 +728,8 @@
     <Content Include="App_Code\UploadImage\UploadImageModel.cs" />
     <Content Include="App_Code\FileExplorerController.cs" />
     <Content Include="App_Code\ChartDataApiController.cs" />
+    <Content Include="App_Code\TestPartialController.cs" />
+    <Content Include="App_Code\TreeAndTileController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

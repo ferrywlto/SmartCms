@@ -1,0 +1,9 @@
+﻿
+@model  IEnumerable<My.Controllers.TileViewModel>
+           
+@{
+    foreach (var tile in Model)
+    {
+        Html.EJ().Tile("tile"+tile.name).ImageUrl(tile.path).ImagePosition(TileImagePosition.Center);
+    }
+}

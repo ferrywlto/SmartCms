@@ -1,8 +1,8 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage
 <script type="text/javascript">
     var folderPath = "@Url.Content("~/media/")";
     var localServ = "@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault")";
-    var temp = "";
+    
     function onDropdownValueChanged(sender) {
         folderPath = "@Url.Content("~/media/")" + sender.value;
         $("#fileExplorerMVC").ejFileExplorer(getFileSetting());
@@ -15,47 +15,76 @@
             ajaxAction: localServ
         };
     }
+
+    function inspectionDialogOpen() {
+        $('#inspectionDialog').ejDialog('open');
+    }
+    function safetyDialogOpen() {
+        $('#safetyDialog').ejDialog('open');
+    }
+
+    var selectedItem = "";
     function onFileSelect(args) {
-        if (args.model.selectedItems.length > 0) { temp = args.model.path + args.model.selectedItems[0]; }
-        //alert(args.model.path + args.model.selectedItems[0] + " has been selected");
+        if (args.model.selectedItems.length > 0) { selectedItem = args.model.path + args.model.selectedItems[0]; }
     }
-    function dialogOpen() {
-        $('#helpDialog').ejDialog('open')
+    function safetyOpen() {
+        $('#safetyBtn').text(selectedItem);
     }
-    function tempx()
-    {
-        document.write(folderPath);
+    function inspectionOpen() {
+        $('#inspectionBtn').text(selectedItem);
     }
 </script>
-
 @{
+    const string Inspect = "Inspect";
+    const string Safety = "Safety";
     var feCtrl = new My.Controllers.FileExplorerController();
     var ddl = Html.EJ().DropDownList("vegatableMVC").Width("250");
     ddl.DropDownListFields(f => f.Text("skill").Value("value").Category("category"));
     ddl.AllowGrouping(true).Datasource(feCtrl.GetPathList());
     ddl.ClientSideEvents(e => e.Change("onDropdownValueChanged"));
 
-    List<string> toolsList = new List<string>() { "navigation", "addressBar", "editing", "copyPaste", "customTool" };
-    List<string> editList = new List<string>() { "Refresh", "Delete", "Rename", "Help", "Help2" };
-    var fe = Html.EJ().FileExplorer("fileExplorerMVC")
+    List<string> toolsList = new List<string>() { "navigation", "editing", "copyPaste", "customTool", "searchBar", "getProperties" };
+    List<string> editList = new List<string>() { "Refresh", "Delete", "Rename" };
+    var fe = Html.EJ().FileExplorer("fileExplorerMVC").ShowTreeview(true)
+        .FilterSettings(fs => fs.FilterType(FilterOperatorType.Contains).CaseSensitiveSearch(false))
+        .GridSettings(gs => gs.Column(col =>
+        {
+            col.Add().Field("name").HeaderText("Name").Width("150px");
+            col.Add().Field("type").HeaderText("Type").Width("100px");
+            col.Add().Field("size").HeaderText("Size").Width("100px");
+            col.Add().Field("IsReadOnly").HeaderText("IsReadOnly").Width("75px");
+            col.Add().Field("stamp").HeaderText("Stamp").Width("75px");
+            col.Add().Field("createdDate").HeaderText("Date Created").Width("150px");
+            col.Add().Field("dateModified").HeaderText("Date Modified").Width("150px");
+        }))
         .ClientSideEvents(c=>c.Select("onFileSelect"))
-        .Layout(LayoutType.Grid)
+        .Layout(LayoutType.Tile)
         .FileTypes("*.png, *.gif, *.jpg, *.jpeg, *.docx, *.pdf")
-        .Tools(t=>t.CustomTool(cust=>cust.Name("Help")
-                .Action("dialogOpen")
-                .Css("e-fileExplorer-toolbar-icon Help").Add()
-                ))                   
-    .ToolsList(toolsList)
+        .Tools(t=>t.CustomTool(
+            cust => {
+                cust.Name(Safety).Tooltip(Safety).Action("inspectionDialogOpen").Css("e-fileExplorer-toolbar-icon " + Safety).Add();
+                cust.Name(Inspect).Tooltip(Inspect).Action("safetyDialogOpen").Css("e-fileExplorer-toolbar-icon " + Inspect).Add();                
+            }))
+    .ToolsList(toolsList).IsResponsive(true)
     .AjaxAction(@Url.Content("~/Umbraco/My/FileExplorer/FileActionDefault"))
     .Width("1000").Height("500").Path(@Url.Content("~/media/"));
 
-    var hd = Html.EJ().Dialog("helpDialog").Title("FileExplorer Help").EnableResize(false).EnableModal(true).ShowOnInit(false).Width(250)
-    .ContentTemplate(@<div><script type="text/javascript">tempx()</script></div>); // <- need to find out why it didnt update
+    var insDial = Html.EJ().Dialog("inspectionDialog").Title("Inspection Image Detail")
+        .EnableResize(false).EnableModal(true).ShowOnInit(false).Width(250)
+        .ClientSideEvents(evt => evt.BeforeOpen("inspectionOpen"))
+        .ContentTemplate(@<div>@Html.EJ().Button("inspectionBtn")</div>);
+
+    var safeDial = Html.EJ().Dialog("safetyDialog").Title("Safety Image Detail")
+        .EnableResize(false).EnableModal(true).ShowOnInit(false).Width(250)
+        //.ActionButtons(new List<string>(){"pin","close"})
+        .ClientSideEvents(evt => evt.BeforeOpen("safetyOpen"))
+        .ContentTemplate(@<div>@Html.EJ().Button("safetyBtn")</div>); // <- need to find out why it didnt update <- fixed
 }
 <div class="content-container-fluid">
     @ddl
     @fe
-    @hd
+    @insDial
+    @safeDial
 </div>
 
 <style class="cssStyles">
@@ -65,13 +94,15 @@
         font-family: 'ej-webfont';
         font-size: 18px;
         margin-top: 2px;
-        text-align: center;
+        text-align: center;        
     }
 
-    .e-fileExplorer-toolbar-icon.Help:before {
-        content: "\u2139";
+    .e-fileExplorer-toolbar-icon.Safety:before {
+        content: url(@Url.Content("~/css/images/app_safety.png"));
     }
-
+    .e-fileExplorer-toolbar-icon.Inspect:before {
+        content: url(@Url.Content("~/css/images/app_inspection.png"));
+    }
     .e-dialog .header-content {
         font-size: 22px;
     }

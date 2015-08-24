@@ -1,0 +1,59 @@
+﻿
+@using System.Runtime.Remoting.Channels
+@using ClientDependency.Core
+@using My.Controllers
+@using umbraco.cms.helpers
+@inherits UmbracoTemplatePage
+@{
+    Layout = "LoginLayout.cshtml";
+}
+
+<div style="width: 100%; height: 300px"></div>
+<div style="width: 30%; height: 700px">
+    @** issue 1: using ds.URL() will cause Pid forced include in result JSON object, which will cause adding child node fail,
+        have to find way to solve it.
+        
+        issue 2: have to ask Syncfusion how to LoadOnDemand with custom datasource instead of binding to table
+    
+        tonight: load tile by ajax
+    **@
+    @(Html.EJ().TreeView("tree")
+        .TreeViewFields(f => f.Datasource(
+                ds => ds.URL("/Umbraco/My/TreeAndTile/GetPathList"))
+        .Id("Id").ParentId("Pid").Text("Name").Expanded("Expanded").HasChild("HasChild"))
+                        .LoadOnDemand(true).ClientSideEvents(e => e.NodeSelect("onTreeNodeSelect"))
+        )
+    @*@(Html.EJ().TreeView("tree").
+    TreeViewFields(s => s.Datasource((IEnumerable<TreeViewModel>)ViewBag.datasource)
+    .Id("id").ParentId("pid").Text("name").HasChild("hasChild").Expanded("expanded")))*@
+</div>
+<div style="width: 70%; height: 700px">
+
+</div>
+<script>
+    function onTreeNodeSelect(args) {
+        alert("onTreeNodeClick");
+        $("#dvCategoryResults").load('/Umbraco/My/TreeAndTile/GetDetail?args='+args);
+    }
+</script>
+
+@*$.ajax({
+    type: 'GET',
+    url: '/Recipients/GetMlaDeliveryType',
+    data: { id: mlaId },
+    cache: false,
+    success: function(result) {
+
+    }
+});*@
+@*<div id="dvCategoryResults">
+    @{Html.RenderPartial("CategoryResults", Model);}
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ddlCategory").change(function () {
+            var categoryId = $("#ddlCategory").val();
+            $("#dvCategoryResults").load('@(Url.Action("GetCategoryProducts","Home",null, Request.Url.Scheme))?categoryId=' + categoryId);
+        });
+    });
+</script>*@

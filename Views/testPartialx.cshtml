@@ -1,0 +1,9 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+@*@Html.Partial(My.Controllers.TestPartialController.Index,"hello")
+@Html.Action(My.Controllers.TestPartialController, "Index", "hello");
+@Html.RenderAction(My.Controllers.TestPartialController,"Index","hello")*@
+@Html.Action("Umbraco/My/TestPartial", "Index");
+@Umbraco.Ren
